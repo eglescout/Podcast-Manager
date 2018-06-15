@@ -172,7 +172,7 @@ class PodcastMediaControllerFile extends JControllerLegacy
 
 			// Trigger the onContentBeforeSave event.
 			$object_file = new JObject($file);
-			$result      = $dispatcher->trigger('onContentBeforeSave', ['com_podcastmedia.file', &$object_file]);
+			$result      = $dispatcher->trigger('onContentBeforeSave', ['com_podcastmedia.file', &$object_file, true]);
 
 			if (in_array(false, $result, true))
 			{

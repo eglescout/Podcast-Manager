@@ -100,7 +100,7 @@ class PodcastMediaControllerFolder extends JControllerLegacy
 				if (is_file($object_file->filepath))
 				{
 					// Trigger the onContentBeforeDelete event.
-					$result = $dispatcher->trigger('onContentBeforeDelete', ['com_podcastmedia.file', &$object_file]);
+					$result = $dispatcher->trigger('onContentBeforeDelete', ['com_podcastmedia.file', &$object_file,true]);
 
 					if (in_array(false, $result, true))
 					{
@@ -228,7 +228,7 @@ class PodcastMediaControllerFolder extends JControllerLegacy
 			$object_file = new JObject(['filepath' => $path]);
 			JPluginHelper::importPlugin('content');
 			$dispatcher = JEventDispatcher::getInstance();
-			$result     = $dispatcher->trigger('onContentBeforeSave', ['com_podcastmedia.folder', &$object_file]);
+			$result     = $dispatcher->trigger('onContentBeforeSave', ['com_podcastmedia.folder', &$object_file, true]);
 
 			if (in_array(false, $result, true))
 			{
